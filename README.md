@@ -200,15 +200,34 @@ pnpm dev
 A aplicação estará disponível em:
 
 http://localhost:3000
+
+
 ## 📁 11. Estrutura do Projeto
-src/
-├── app/                # Rotas (Next.js App Router)
-├── components/         # Interface e visualização
-├── engine/             # Núcleo da simulação
-│   └── elevator-engine.ts
-├── hooks/              # Hooks customizados
-├── types/              # Tipagens globais
-└── utils/              # Funções auxiliares
+
+```bash
+PROJECT-ELEVA/
+├── .next/               # Build gerado automaticamente pelo Next.js
+├── app/                 # Rotas e páginas (Next.js App Router)
+├── components/          # Componentes reutilizáveis da interface
+├── hooks/               # Hooks customizados do React
+├── lib/                 # Lógica auxiliar, utilitários e funções de apoio
+├── node_modules/        # Dependências instaladas pelo gerenciador de pacotes
+├── public/              # Arquivos estáticos (imagens, ícones, etc.)
+├── styles/              # Estilos globais e configurações CSS
+│
+├── .gitignore           # Arquivos e pastas ignorados pelo Git
+├── components.json      # Configuração do shadcn/ui
+├── next-env.d.ts        # Tipagens automáticas do Next.js
+├── next.config.mjs      # Configuração do Next.js
+├── package.json         # Dependências e scripts do projeto
+├── pnpm-lock.yaml       # Lockfile do pnpm
+├── postcss.config.mjs   # Configuração do PostCSS (Tailwind)
+├── README.md            # Documentação do projeto
+└── tsconfig.json        # Configuração do TypeScript
+```
+
+
+
 ## 🧪 12. Casos de Uso
 
 Demonstração prática de algoritmos de escalonamento
