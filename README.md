@@ -1,36 +1,41 @@
 🛗 Projeto Eleva
-Onde a Matemática Encontra o Botão do Térreo
 
-Simulador de escalonamento de elevadores com comparação de algoritmos (FIFO vs SCAN), métricas em tempo real e motor de simulação desacoplado.
+Simulador de Escalonamento de Elevadores com Comparação Algorítmica em Tempo Real
+
+Next.js · React · TypeScript · Tailwind · Vercel
 
 📋 Sobre o Projeto
 
+O Projeto Eleva é um simulador interativo de escalonamento de elevadores que compara, em tempo real, algoritmos clássicos de decisão aplicados a um sistema físico simulado.
+
+A proposta parte de uma pergunta simples:
+
 “Por que o elevador passou por mim e não parou?”
 
-Essa pergunta simples esconde um dos problemas mais interessantes da computação: escalonamento de recursos.
+Por trás dessa situação cotidiana existe um problema clássico da computação: escalonamento de recursos.
 
-O Projeto Eleva é um laboratório interativo que simula o comportamento de múltiplos elevadores em um prédio de 15 andares, permitindo comparar estratégias de decisão e visualizar métricas como:
+O projeto simula múltiplos elevadores em um prédio de 15 andares e mede o impacto direto das decisões algorítmicas em métricas como:
 
 Tempo médio de espera
 
-Throughput
+Total de andares percorridos
 
-Movimento total
+Eficiência operacional
 
 Distribuição de carga
 
-O projeto transforma um problema do mundo real em uma aplicação prática de algoritmos clássicos utilizados em sistemas operacionais e controle de recursos.
+Capacidade de processamento
 
 🌐 Testar Online
 
-Se você não quiser rodar o projeto localmente, pode acessar a versão hospedada:
+Caso não queira rodar o projeto localmente, você pode acessar a versão em produção:
 
-👉 Versão em produção:
+👉 Versão hospedada:
 https://project-eleva.vercel.app
 
-🎯 Objetivo
+🎯 Objetivo do Projeto
 
-Simular e comparar estratégias de atendimento em um sistema com:
+Demonstrar, de forma prática e visual, como diferentes estratégias de escalonamento impactam a eficiência de um sistema com:
 
 🏢 15 andares
 
@@ -38,57 +43,55 @@ Simular e comparar estratégias de atendimento em um sistema com:
 
 👥 Chamadas simultâneas
 
-📊 Métricas em tempo real
+📊 Métricas atualizadas em tempo real
 
-O foco é demonstrar como diferentes algoritmos impactam:
+O foco é evidenciar como decisões algorítmicas influenciam:
 
 Tempo médio de espera
 
-Eficiência de rotação
+Uso de recursos
 
-Distribuição de carga
+Deslocamento total
 
-Uso inteligente de recursos
+Balanceamento de carga
 
 🧠 Algoritmos Implementados
 1️⃣ FIFO (First In, First Out)
 
 Estratégia: Atender chamadas na ordem de chegada.
 
-Vantagens:
+Características:
 
-Simples implementação
+Implementação simples
 
 Justiça cronológica
 
-Desvantagens:
+Não considera proximidade ou direção
 
-Ignora proximidade
+Impacto:
 
-Pode aumentar o tempo médio de espera
+Pode aumentar deslocamentos desnecessários
 
-Não otimiza deslocamento
+Pode elevar o tempo médio de espera
 
-2️⃣ SCAN (Algoritmo do Elevador)
+2️⃣ SCAN (Elevator Algorithm)
 
-Também conhecido como “Elevator Algorithm”.
+Também conhecido como “Algoritmo do Elevador”.
 
 Estratégia:
-O elevador percorre uma direção atendendo todas as chamadas no caminho até o limite e, em seguida, inverte o sentido.
+O elevador percorre uma direção atendendo todas as chamadas no trajeto até o limite, e então inverte o sentido.
 
-Vantagens:
+Características:
 
-Reduz deslocamentos desnecessários
+Minimiza deslocamentos redundantes
 
-Diminui o tempo médio de espera
+Otimiza fluxo contínuo
 
-Fluxo mais eficiente
+Reduz tempo médio de espera
 
-Melhor distribuição de chamadas
+🧮 Sistema de Decisão (Função de Custo)
 
-🧮 Sistema de Decisão (Score)
-
-Para definir qual elevador atenderá uma nova chamada, o sistema utiliza uma função de custo:
+Para definir qual elevador atenderá uma nova chamada, o sistema utiliza uma função de score:
 
 Score = |AndarAtual - AndarChamada|
         + PenalidadeDirecao
@@ -100,26 +103,30 @@ Componentes do Score
 
 Distância: Diferença absoluta entre andares
 
-Penalidade de Direção: Aplicada se for necessário inverter o sentido atual
+Penalidade de Direção: Aplicada quando há necessidade de inverter o sentido atual
 
-Penalidade de Carga: Considera número de paradas já agendadas
+Penalidade de Carga: Considera o número de paradas já agendadas
 
-🔬 Diferenciais Técnicos
+✨ Características Principais
+🏗️ Arquitetura e Design
+
+✅ Motor de simulação desacoplado da interface
+✅ Separação clara entre lógica e visualização
+✅ Código fortemente tipado com TypeScript
+✅ Estrutura modular e escalável
+
 ⚔ Comparação A/B em Tempo Real
 
-Execução paralela de FIFO e SCAN com os mesmos passageiros.
+✅ Execução paralela de FIFO e SCAN
+✅ Mesmos passageiros para ambos os algoritmos
+✅ Comparação direta de métricas
 
 📊 Métricas em Tempo Real
 
-Painel com:
-
-Tempo médio de espera
-
-Total de andares percorridos
-
-Capacidade de processamento
-
-Distribuição de carga
+✅ Tempo médio de espera
+✅ Total de andares percorridos
+✅ Distribuição de chamadas
+✅ Eficiência por algoritmo
 
 ⏱ Sistema Baseado em Tick
 
@@ -129,31 +136,36 @@ Aceleração do tempo
 
 Testes de estresse
 
-Análises comparativas
+Simulações comparativas
 
-🧠 Motor Desacoplado
+🧠 Motor de Simulação Desacoplado
 
-O arquivo elevator-engine.ts é completamente independente da interface.
+Arquivo principal:
 
-Benefícios:
+engine/elevator-engine.ts
 
-Testabilidade
+Características:
 
-Escalabilidade
+Totalmente independente da interface
 
-Manutenibilidade
+Reutilizável
 
-Possibilidade de trocar a UI sem alterar a lógica
+Testável
 
-🛠 Stack Tecnológica
+Permite troca de UI sem alteração da lógica
+
+🛠️ Pilha Tecnológica
 Tecnologia	Versão	Uso
 Next.js	15	Estrutura e App Router
 React	19	Interface reativa
-TypeScript	5.7	Tipagem forte
-Tailwind CSS	4	Estilização
+TypeScript	5.7	Tipagem forte e segurança
+Tailwind CSS	4	Estilização responsiva
 shadcn/ui	—	Componentes modernos
 pnpm	—	Gerenciador de pacotes
+Vercel	—	Hospedagem e deploy
 📦 Pré-requisitos
+
+Antes de iniciar, verifique se possui instalado:
 
 Node.js 18+
 
@@ -162,47 +174,49 @@ pnpm
 Git
 
 🚀 Instalação e Execução
-1️⃣ Clonar o repositório
+1. Clonar o repositório
 git clone https://github.com/jonasferreira-silva1/Project-Eleva
 cd Project-Eleva
-2️⃣ Instalar dependências
+2. Instalar dependências
 pnpm install
-3️⃣ Rodar o projeto
+3. Executar o projeto
 pnpm dev
 
-Acesse:
+A aplicação estará disponível em:
 
 http://localhost:3000
-📊 Estrutura do Projeto
+📁 Estrutura do Projeto
 src/
 ├── app/                    # Rotas (Next.js App Router)
-├── components/             # Interface
+├── components/             # Interface e visualização
 ├── engine/
 │   └── elevator-engine.ts  # Núcleo da simulação
 ├── hooks/                  # Hooks customizados
-├── types/                  # Tipagens
+├── types/                  # Tipagens globais
 └── utils/                  # Funções auxiliares
-📈 Métricas Avaliadas
+📊 Métricas Avaliadas
 
-Tempo médio de espera
+O sistema compara automaticamente:
+
+Tempo médio de espera por passageiro
 
 Total de andares percorridos
 
-Distribuição de chamadas
+Distribuição de chamadas entre elevadores
 
-Eficiência comparativa por algoritmo
+Eficiência geral por algoritmo
 
-Essas métricas tornam explícito o impacto da escolha algorítmica.
+Essas métricas tornam explícito o impacto direto da escolha algorítmica.
 
 🧪 Casos de Uso
 
 Demonstração prática de algoritmos de escalonamento
 
-Estudo de estruturas de dados
+Ensino de estruturas de dados e otimização
 
-Ensino de SCAN vs FIFO
+Visualização comparativa de estratégias
 
-Visualização do impacto de decisões algorítmicas
+Laboratório educacional interativo
 
 🏁 Conclusão
 
@@ -210,7 +224,7 @@ O Projeto Eleva demonstra que:
 
 A diferença entre um sistema funcional e um sistema excelente está na otimização.
 
-Ao aplicar conceitos clássicos de escalonamento a um sistema físico simulado, o projeto evidencia como decisões algorítmicas influenciam diretamente:
+Ao aplicar algoritmos clássicos a um sistema físico simulado, o projeto evidencia como decisões algorítmicas impactam diretamente:
 
 Desempenho
 
@@ -220,7 +234,15 @@ Experiência do usuário
 
 Eficiência sistêmica
 
-Cada decisão inteligente economiza dezenas — ou milhares — de andares percorridos.
+Cada decisão inteligente pode economizar centenas — ou milhares — de andares percorridos.
+
+🏆 Diferenciais do Projeto
+
+1️⃣ Comparação algorítmica em tempo real
+2️⃣ Motor desacoplado e reutilizável
+3️⃣ Métricas visuais imediatas
+4️⃣ Arquitetura escalável
+5️⃣ Aplicação prática de conceitos clássicos de sistemas operacionais
 
 👤 Autor
 
