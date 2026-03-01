@@ -190,8 +190,8 @@ Caso não queira rodar o projeto localmente, acesse a versão em produção:
 
 ## 🚀 10. Como Executar
 1. Clonar o repositório
-git clone https://github.com/jonasferreira-silva1/Project-Eleva
-cd Project-Eleva
+git clone https://github.com/jonasferreira-silva1/Smart-Elevator-System
+cd Smart-Elevator-System
 2. Instalar dependências
 pnpm install
 3. Executar o projeto
