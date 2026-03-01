@@ -113,7 +113,7 @@ Recurso O que é (Técnico) Por que importa (Humano)
 
 # 1. Clone o repositório
 
-git clone https://github.com/seu-usuario/project-eleva
+git clone https://github.com/jonasferreira-silva1/Project-Eleva
 
 # 2. Instale as dependências
 
