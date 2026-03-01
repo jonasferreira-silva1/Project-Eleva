@@ -88,38 +88,85 @@ O elevador com o **menor Score** assume a requisição.
 - **Distância**
   Diferença absoluta entre o andar atual e o andar da chamada.
 
-🔄 Penalidade de Direção
-Se o elevador está subindo e a chamada está abaixo dele, recebe um peso adicional — incentivando terminar sua rota atual antes de inverter.
+- **Penalidade de Direção**
+  Aplicada quando o elevador precisaria inverter sua rota atual.
 
-📦 Penalidade de Carga
-Cada parada já agendada adiciona custo, evitando sobrecarga enquanto outros elevadores estão ociosos.
+- **Penalidade de Carga**
+  Considera o número de paradas já agendadas para evitar sobrecarga.
 
-🔬 Diferenciais Técnicos
-Recurso O que é (Técnico) Por que importa (Humano)
-⚔ Comparação A/B Execução paralela de estados Você vê o “duelo” entre SCAN e FIFO com os mesmos passageiros
-📊 Métricas em Real Time Dashboard de throughput e tempo médio de espera Transforma código invisível em performance mensurável
-⏱ Tick-based System Simulação por intervalos (100–1000ms) Permite acelerar o tempo para testes de estresse
-🧠 Engine desacoplada elevator-engine.ts agnóstico à UI Permite testar, escalar e trocar interface sem afetar a lógica
-🛠 Stack Tecnológica
+---
 
-⚡ Next.js 15 (App Router) — Estrutura de rotas moderna e alta performance
+## 🔬 Diferenciais Técnicos
 
-⚛ React 19 — UI reativa e gerenciamento avançado de estado
+### ⚔ Comparação A/B em Tempo Real
 
-🧩 TypeScript 5.7 — Tipagem estrita para garantir integridade matemática
+Execução paralela dos algoritmos (SCAN vs FIFO) com os mesmos passageiros.
 
-🎨 Tailwind CSS 4 — Estilização utilitária e responsiva
+### 📊 Métricas em Tempo Real
 
-🧱 shadcn/ui — Componentes acessíveis e otimizados para Dark Mode
+Dashboard com:
 
-🚀 Como Rodar o Laboratório
+- Tempo médio de espera
+- Total de andares percorridos
+- Throughput
+- Distribuição de carga
 
-# 1. Clone o repositório
+### ⏱ Sistema Baseado em Tick
 
-git clone https://github.com/seu-usuario/project-eleva
+Simulação controlada por intervalos (100ms – 1000ms), permitindo:
 
-# 2. Instale as dependências
+- Aceleração do tempo
+- Testes de estresse
+- Análises comparativas
 
+### 🧠 Engine Desacoplada
+
+Arquivo `elevator-engine.ts` totalmente independente da interface.
+
+Benefícios:
+
+- Fácil manutenção
+- Testabilidade
+- Escalabilidade
+- Possibilidade de trocar UI sem alterar lógica
+
+---
+
+## 🛠 Stack Tecnológica
+
+| Tecnologia   | Versão | Uso                                          |
+| ------------ | ------ | -------------------------------------------- |
+| Next.js      | 15     | Estrutura de rotas (App Router)              |
+| React        | 19     | Interface reativa                            |
+| TypeScript   | 5.7    | Tipagem forte e segurança matemática         |
+| Tailwind CSS | 4      | Estilização responsiva                       |
+| shadcn/ui    | -      | Componentes modernos com suporte a Dark Mode |
+| pnpm         | -      | Gerenciador de dependências                  |
+
+---
+
+## 📦 Pré-requisitos
+
+Antes de começar, verifique se possui instalado:
+
+- Node.js 18+
+- pnpm
+- Git
+
+---
+
+## 🚀 Instalação e Execução
+
+### 1. Clonar o repositório
+
+```
+git clone https://github.com/jonasferreira-silva1/Project-Eleva
+cd Project-Eleva
+```
+
+### 2. Instalar dependências
+
+```
 pnpm install
 ```
 
